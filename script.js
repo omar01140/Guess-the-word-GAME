@@ -87,8 +87,6 @@ function addMultipleEvents(element, events) {
             if(e.type === 'input' || (e.type === 'keydown' && e.key === 'Backspace')){
                 disInputs = document.querySelectorAll("input:not([disabled])")
                 empty = Array.from(disInputs).filter((element)=>element.value === "")
-                console.log(Array.from(disInputs)[disInputs.length - 1].value)
-                console.log(empty)
                 if(hints === 0 || empty.length === 0){
                     hintBTN.disabled = true;
                 }else if(hints > 0 && empty.length > 0){
@@ -142,7 +140,6 @@ function handleBackspace(event){
 
     }else if(event.key === "Backspace" ){
         event.target.value = ""
-        console.log(event.target.value)
     }
     disInputs = document.querySelectorAll("input:not([disabled])")
     empty = Array.from(disInputs).filter((element)=>element.value === "")
@@ -186,9 +183,7 @@ function handleAnswers(){
         if (trueGuess) {
         message.innerHTML = `You Win The Word Is <span>${wordTOguess}</span>`;
         checkBTN.disabled = true
-        hintBTN.disabled = true
-        console.log("disabled from (handleGuesses 1)");
-        
+        hintBTN.disabled = true        
 
         let divs = document.querySelectorAll(".Tries div")
         divs.forEach((div)=>div.classList.add("disabled-inputs")) 
@@ -215,16 +210,11 @@ function handleAnswers(){
             }       
             
             let nextDiv = document.querySelector(`.try-${currentTry}`);
-            console.log(nextDiv);
             nextDiv.classList.remove("disabled-inputs");
-
-
         }else{
             message.innerHTML = `You Lose The Word Is <span>${wordTOguess}</span>`;
             checkBTN.disabled = true
-            hintBTN.disabled = true
-            console.log("disabled from (handleGuesses 2)");
-            
+            hintBTN.disabled = true            
         }
     }
 
@@ -251,7 +241,6 @@ function handleAnswers(){
         for (let i = 1; i <= AnextDiv.childElementCount -1; i++) {
             if(AnextDiv.children[i].className === ""){
                 AnextDiv.children[i].focus()
-                console.log(AnextDiv.children[i].className);
                 break;
             }     
         }
