@@ -15,7 +15,7 @@ footer.innerHTML = gameName;
 
 // Setting Game Options
 // let trueGuess
-let hints = 5;
+let hints = 2;
 let numberOFtries = 5;
 let currentTry = 1;
 
